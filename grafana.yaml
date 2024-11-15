@@ -45,7 +45,7 @@ apiVersion: grafana.integreatly.org/v1beta1
 kind: Grafana
 metadata:
   name: grafana
-  namespace: your-namespace  # Replace with your namespace
+  namespace: grafana  # Replace with your namespace
 spec:
   config:
     security:
@@ -127,3 +127,16 @@ data:
         rules:
           default: true
           custom: {}
+
+---
+
+# grafana-route.yaml
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: grafana
+  namespace: grafana
+spec:
+  to:
+    kind: Service
+    name: grafana-service
