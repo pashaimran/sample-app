@@ -121,7 +121,7 @@ data:
           storageClassName: standard
           resources:
             requests:
-              storage: 100Gi
+              storage: 1Gi
     k8sPrometheusAdapter:
       metrics:
         rules:
